@@ -15,7 +15,6 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState("About");
 
-  // Initial setup on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -25,7 +24,6 @@ export default function Home() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
-  // Toggle function
   const toggleTheme = () => {
     const newDark = !darkMode;
     setDarkMode(newDark);
@@ -56,9 +54,9 @@ export default function Home() {
 
   return (
     <main>
-      <div className="bg-white text-black dark:bg-[#121212] dark:text-white min-h-screen transition-colors duration-300">
+      <div className="bg-white text-black dark:bg-[#121212] dark:text-white min-h-screen transition-colors duration-300 flex flex-col">
         <Navbar toggleTheme={toggleTheme} darkMode={darkMode} setActiveSection={setActiveSection} />
-        <div className="flex px-6 py-8 gap-8">
+        <div className="flex px-6 py-8 gap-8 flex-1">
           <div className="w-72 shrink-0">
             <Sidebar />
           </div>
@@ -66,6 +64,7 @@ export default function Home() {
             {renderSection()}
           </section>
         </div>
+        <Footer />
       </div>
     </main>
   );
