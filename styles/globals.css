@@ -1,0 +1,18 @@
+@import "tailwindcss";
+/* Removed @plugin rule. Configure DaisyUI in Tailwind CSS config file instead. */
+html {
+    scroll-behavior: smooth;
+    transition: all 0.3s ease;
+  }
+
+ 
+
+  html[data-theme="dark"] {
+    background-color: #000000; 
+    color: white;
+  }
+  
+  html[data-theme="light"] {
+    background-color: #ffffff; 
+    color: black;
+  }
